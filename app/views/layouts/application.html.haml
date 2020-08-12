@@ -1,0 +1,24 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{ name: 'viewport', content: 'initial-scale=1.0, user-scalable=no' }
+    %title Routine
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    %header.nav.navbar.navbar-light.shadow-sm.navbar-expand-lg
+      = link_to root_path, {class:"navbar-brand"} do
+        = image_tag 'logo.png',height: '42px'
+      %button.navbar-toggler{data:{toggle:"collapse",target:"#menu"}}
+        %span.navbar-toggler-icon
+      .collapse.navbar-collapse#menu
+        %ul.navbar-nav
+          %li.nav-item.px-2
+            %a.nav-link.active "設定"
+          %li.nav-item.px-2
+            %a.nav-link "ログアウト"
+    = render 'layouts/flash_messages'
+    = yield

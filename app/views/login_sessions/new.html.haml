@@ -1,0 +1,15 @@
+.container.py-4.text-center
+    %h1.h1 ログイン
+    .card.border-0.bg-light.mt-2
+        .card-body.text-left
+            = form_for @login_form, url:login_session_path do |f|
+                = render 'layouts/validation_messages', model: f.object
+                .form-group
+                    = f.label :name, "名前"
+                    = f.text_field :name, {class:"form-control"}
+                .form-group
+                    = f.label :password, "パスワード"
+                    = f.password_field :password, {class:"form-control"}
+                .form-group
+                    = f.submit "ログイン", {class:"btn btn-primary btn-block"}
+                    = link_to "キャンセル", root_path, {class:"btn btn-default btn-block"}

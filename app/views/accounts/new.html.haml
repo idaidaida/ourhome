@@ -1,0 +1,24 @@
+.container.py-4.text-center
+    %h1.h1 会員登録
+    .card.border-0.bg-light.mt-2
+        .card-body.text-left
+            = form_for @account do |f|
+                = render 'layouts/validation_messages', model: f.object
+                .form-group
+                    = f.label :name, "名前"
+                    = f.text_field :name, {class:"form-control"}
+                .form-group
+                    = f.label :display_name, "表示名"
+                    = f.text_field :display_name, {class:"form-control"}
+                .form-group
+                    = f.label :email, "メールアドレス"
+                    = f.text_field :email, {class:"form-control"}
+                .form-group
+                    = f.label :password, "パスワード"
+                    = f.password_field :password, {class:"form-control"}
+                .form-group
+                    = f.label :password_confirmation, "パスワード（確認用）"
+                    = f.password_field :password_confirmation, {class:"form-control"}                    
+                .form-group
+                    = f.submit "登録する", {class:"btn btn-primary btn-block"}
+                    = link_to "キャンセル", root_path, {class:"btn btn-default btn-block"}

@@ -1,0 +1,6 @@
+- if model.errors.any?
+    .py-2.text-danger
+        %ul
+            -model.errors.full_messages.each do |msg|
+                %li
+                    = msg
